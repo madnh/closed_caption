@@ -14,7 +14,7 @@ IF NOT EXIST ffmpeg.exe (
 
 CLS
 ECHO.
-ECHO            NEED SUBTITLES v0.1
+ECHO            NEED SUBTITLES v0.2
 ECHO                Author: MaDnh
 ECHO                --=0=--
 ECHO.
