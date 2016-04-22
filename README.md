@@ -1,27 +1,38 @@
-# i_need_sub
-Extract audio from tutorial files, mix with video file and ready for upload to Youtube
+# need_sub
+Extract audio stream from video files, mux with a base video file, upload to Youtube and download subtitles
 
-# How to use?
+# Installing
+**need_sub** is dependent on **ffmpeg**
 
-1. Download ffmpeg
-    + Visit this [link](https://ffmpeg.zeranoe.com/builds/), download ffmpeg build
-    + Extract downloaded file, copy `bin\ffmpeg.exe` to **i_need_sub** folder
+## Windows
+- Download ffmpeg build for Windows at this [link](https://ffmpeg.zeranoe.com/builds/)
+- Extract downloaded file, copy `bin\ffmpeg.exe` to **need_sub** folder
 
-2. Run **i_need_sub.bat** (or open it in "Command Prompt") and press **0** :v
-3. Upload files in _dist\video_files_ to Youtube
+## Linux:
+Linux is not supported
+
+# Use
+1. Run **need_sub.bat** (or open it in "Command Prompt") and choose what you need:
+   - **Mux a file**: mux base video and a single file
+   - **Mux files in folder**: mux base video and all of files (filter by extension) in a folder (recurse subfolders)
+   - **Create base video file**: Create base vide file, video's frames are file `cover.jpg`
+   
+3. Upload files in `dist` to Youtube, use any tools to download subtitles
 
 # Images
+![Interface](http://i.imgur.com/S5C9LYQ.png)
 
-![Interface](http://i.imgur.com/TSRyJvl.png)
+Missing ffmpeg.exe file
+![missing](http://i.imgur.com/NjeQ0eF.png)
 
-Create base video
-![Create base video](http://i.imgur.com/gNU3ngh.png)
+Create base video file
+![base video](http://i.imgur.com/jiVaSxC.png)
 
-Extract audio from tutorial files
-![Extract audio from tutorial files](http://i.imgur.com/55sJ7Lf.png)
+Mux a file
+![mux a file](http://i.imgur.com/JuT3rja.png)
 
-Mux audio and video
-![Mux](http://i.imgur.com/mXOfyso.png)
+Mux files in folder
+![Mux folder](http://i.imgur.com/Lt6wD8N.png)
 
 Result
-![Result](http://i.imgur.com/Gg0J5Ee.png)
+![Result](http://i.imgur.com/iQHWOZM.png)
