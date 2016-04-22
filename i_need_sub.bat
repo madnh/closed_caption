@@ -6,6 +6,7 @@ IF NOT EXIST ffmpeg.exe (
 	ECHO ---------------------------------
 	ECHO !!!!! ffmpeg.exe not found
 	ECHO ---------------------------------
+	pause
 	GOTO EXIT
 )
 :START
