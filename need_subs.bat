@@ -6,7 +6,7 @@ IF NOT EXIST files\ffmpeg.exe (
 	ECHO ---------------------------------
 	ECHO !!!!! files\ffmpeg.exe not found
 	ECHO ---------------------------------
-	pause
+	PAUSE
 	GOTO EXIT
 )
 
@@ -28,7 +28,7 @@ ECHO            0 - Exit
 ECHO.
 ECHO --------------------------------------------------
 
-SET M=99
+SET M=
 SET /P M=Choose: 
 
 IF %M%==1 GOTO MUX_A_FILE
@@ -53,6 +53,7 @@ CLS
 ECHO.
 ECHO Mux a file
 ECHO ===========================
+SET F=
 SET /P F=Video file path: 
 
 IF NOT EXIST %F% (
@@ -73,14 +74,17 @@ CLS
 ECHO.
 ECHO Mux files in folder
 ECHO ===========================
+SET D=
 SET /P D=Video folder path: 
 
+@IF [%D%] EQU [] GOTO PATH_NOT_FOUND
 @IF EXIST %D%\NUL GOTO MUX_MULTI_FILES_PATH_FOUND
 @IF EXIST %D%\*.* GOTO MUX_MULTI_FILES_PATH_FOUND
 @FOR /r %D% %%T IN (*.*) DO (
 	GOTO MUX_MULTI_FILES_PATH_FOUND
 )
 
+:PATH_NOT_FOUND
 ECHO.
 ECHO          Path not found
 ECHO.
@@ -89,8 +93,8 @@ PAUSE
 GOTO START
 
 :MUX_MULTI_FILES_PATH_FOUND
-
-SET /P E=File extension: 
+SET P=
+SET /P P=Result's prefix: 
 
 ECHO.
 ECHO -----------------------------------
@@ -98,8 +102,13 @@ ECHO Mux multiple .%E% files in: %D%
 ECHO -----------------------------------
 ECHO.
 
-for /r %D% %%F in (*.%E%) DO (
-	CALL files\process.bat "%%F"
+for /r %D% %%F in (*.*) DO (
+	IF NOT [%P%] EQU [] (
+		CALL files\process.bat "%%F" "%P%"
+	) ELSE (
+		CALL files\process.bat "%%F"
+	)
+	
 	ECHO.
 )
 
