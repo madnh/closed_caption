@@ -44,7 +44,7 @@ CLS
 ECHO.
 ECHO Create base video file
 ECHO ===========================
-CALL files\base_video.bat true
+CALL base.bat true
 PAUSE
 GOTO START
 
@@ -64,7 +64,7 @@ IF NOT EXIST %F% (
 	PAUSE
 	GOTO START
 )
-CALL files\process.bat %F%
+CALL file.bat %F%
 ECHO ---------------------------------------------------
 PAUSE
 GOTO START
@@ -104,9 +104,9 @@ ECHO.
 
 for /r %D% %%F in (*.*) DO (
 	IF NOT [%P%] EQU [] (
-		CALL files\process.bat "%%F" "%P%"
+		CALL file.bat "%%F" "%P%"
 	) ELSE (
-		CALL files\process.bat "%%F"
+		CALL file.bat "%%F"
 	)
 	
 	ECHO.

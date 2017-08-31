@@ -1,4 +1,4 @@
-# need_subs
+# Closed Captions
 Extract audio stream from video files, mux with a base video file, upload to Youtube and download subtitles
 
 # Installing
@@ -9,15 +9,25 @@ Extract audio stream from video files, mux with a base video file, upload to You
 - Extract downloaded file, copy `bin\ffmpeg.exe` to `<need_subs_path>/files` folder
 
 ## Linux:
-Linux is not supported
+Install `ffmpeg` and Python.
 
-# Use
+# Usage
+
+## Windows
+
 1. Run **need_subs.bat** (or open it in "Command Prompt") and choose what you need:
    - **Mux a file**: mux base video and a single file
    - **Mux files in folder**: mux base video and all of files (filter by extension) in a folder (recurse subfolders)
    - **Create base video file**: Create base vide file, video's frames are file `files/cover.jpg`
    
 3. Upload files in `dist` to Youtube, use any tools to download subtitles
+
+## Linux
+
+1. Run `base.py` to create base video file
+2. Run `file.py` to mix a video file
+3. Run `folder.py` to mix all video files in a folder
+4. Upload files in `dist` to Youtube, use any tools to download subtitles
 
 # Images
 ![Interface](http://i.imgur.com/S5C9LYQ.png)
